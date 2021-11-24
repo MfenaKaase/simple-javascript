@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Simple</title>
+
+</head>
+<body>
+    <header>
+        <nav class="nav-center">
+            <h1>BackgroundFlip</h1>
+            <ul class="nav-links">
+                <li class="nav-link active"><a href="index.html">Simple</a></li>
+                <li class="nav-link"><a href="hex.html">Hex</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="center">
+            <h2>color: <span class="color"></span></h2>
+            <div class="btn-container">
+                <button>Change</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script>
+    const btn = document.querySelector("button");
+    const colorName = document.querySelector(".color");
+
+    const colors = ['#00ee22', '#5f7d3c', '#3e3e3e', 'lightseagreen'];
+
+    btn.addEventListener("click", changeBgColor);
+
+    function changeBgColor(){
+        randomIndex = Math.floor(Math.random() * 4);
+        colorName.innerText = colors[randomIndex];
+        document.querySelector("body").style.backgroundColor = colors[randomIndex];
+        console.log(randomIndex);
+    }
+</script>
+</html>

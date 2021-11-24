@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Hex</title>
+
+</head>
+<body>
+    <header>
+        <nav class="nav-center">
+            <h1>BackgroundFlip</h1>
+            <ul class="nav-links">
+                <li class="nav-link"><a href="index.html">Simple</a></li>
+                <li class="nav-link active"><a href="hex.html">Hex</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="center">
+            <h2>color: <span class="color"></span></h2>
+            <div class="btn-container">
+                <button>Change</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script>
+    const btn = document.querySelector("button");
+    const colorName = document.querySelector(".color");
+
+    const hexValues = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+    btn.addEventListener("click", changeBgColor);
+    
+    function generateColorCode(){
+        let colorString = '#';
+        for(let i = 0; i < 6; i++){
+            let randomIndex = Math.floor(Math.random() * 15);
+            colorString += hexValues[randomIndex];
+        }
+        return colorString;
+    }
+    function changeBgColor(){
+        let randomColor = generateColorCode();
+        colorName.innerText = randomColor;
+        document.querySelector("body").style.backgroundColor = randomColor;
+    }
+</script>
+</html>
